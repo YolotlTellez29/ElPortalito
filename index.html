@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>EL PORTALITO</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Vinculamos el CSS externo -->
+  <link rel="stylesheet" href="color.css">
+</head>
+<body>
+
+  <!-- Franja con imagen horizontal -->
+  <div class="banner"></div>
+
+  <!-- Botón menú -->
+  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <a href="#" onclick="mostrarContenido('menu')">Menú</a>
+      <a href="#" onclick="mostrarContenido('ofertas')">Ofertas</a>
+      <a href="#" onclick="mostrarContenido('sobre')">Sobre Nosotros</a>
+      <a href="#" onclick="mostrarContenido('ayuda')">Ayuda</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main" id="main">
+      <div class="header">
+        <h1>EL PORTALITO</h1>
+      </div>
+
+
+      <!-- Contenidos dinámicos -->
+      <div id="menu" class="content">
+        <h2>Menú</h2>
+        <h3>Comida</h3>
+        <h3>Bebida</h3>
+        <h3>Postres</h3>
+      </div>
+
+      <div id="ofertas" class="content">
+        <h2>Ofertas</h2>
+        <p>Promociones y descuentos especiales.</p>
+      </div>
+
+      <div id="sobre" class="content">
+        <h2>Sobre Nosotros</h2>
+        <p>Información sobre El Portalito.</p>
+      </div>
+
+      <div id="ayuda" class="content">
+        <h2>Ayuda</h2>
+        <p>Preguntas frecuentes y soporte.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>EL PORTALITO ©</p>
+  </div>
+
+  <!-- JS -->
+  <script>
+    function mostrarContenido(seccion) {
+      // Ocultar todos los contenidos
+      const contenidos = document.querySelectorAll('.content');
+      contenidos.forEach(c => c.style.display = 'none');
+
+      // Mostrar el contenido seleccionado
+      document.getElementById(seccion).style.display = 'block';
+
+      // Ocultar sidebar en móviles
+      const sidebar = document.getElementById('sidebar');
+      if (window.innerWidth <= 768) {
+        sidebar.classList.remove('show');
+      }
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const main = document.getElementById('main');
+      sidebar.classList.toggle('hidden');
+      main.classList.toggle('full');
+    }
+  </script>
+
+</body>
+</html>
