@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EL PORTALITO</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Vinculamos el CSS externo -->
   <link rel="stylesheet" href="color.css">
 </head>
 <body>
 
-  <!-- Franja con imagen horizontal -->
+  <!-- Imagen principal (banner superior) -->
   <div class="banner"></div>
 
-  <!-- Botón menú -->
+  <!-- Botón menú (solo móvil) -->
   <button class="menu-btn" onclick="toggleSidebar()">☰</button>
 
+  <!-- Contenedor general -->
   <div class="container">
-    <!-- Sidebar -->
+    <!-- Barra lateral -->
     <div class="sidebar" id="sidebar">
       <a href="#" onclick="mostrarContenido('menu')">Menú</a>
       <a href="#" onclick="mostrarContenido('ofertas')">Ofertas</a>
@@ -30,13 +30,10 @@
         <h1>EL PORTALITO</h1>
       </div>
 
-
       <!-- Contenidos dinámicos -->
       <div id="menu" class="content">
         <h2>Menú</h2>
-        <h3>Comida</h3>
-        <h3>Bebida</h3>
-        <h3>Postres</h3>
+        <p>Explora nuestras comidas, bebidas y postres.</p>
       </div>
 
       <div id="ofertas" class="content">
@@ -46,21 +43,30 @@
 
       <div id="sobre" class="content">
         <h2>Sobre Nosotros</h2>
-        <p>Información sobre El Portalito.</p>
+        <p>Conoce nuestra historia y nuestro equipo.</p>
       </div>
 
       <div id="ayuda" class="content">
         <h2>Ayuda</h2>
         <p>Preguntas frecuentes y soporte.</p>
       </div>
+
+      <!-- Galería de imágenes en la parte inferior -->
+      <div class="gallery">
+        <img src="Portada.jpg" alt="Café 1">
+        <img src="Portada.jpg" alt="Café 2">
+        <img src="Portada.jpg" alt="Café 3">
+        <img src="Portada.jpg" alt="Café 4">
+      </div>
     </div>
   </div>
 
+  <!-- Pie de página -->
   <div class="footer">
-    <p>EL PORTALITO ©</p>
+    <p>EL PORTALITO © 2025</p>
   </div>
 
-  <!-- JS -->
+  <!-- Script -->
   <script>
     function mostrarContenido(seccion) {
       // Ocultar todos los contenidos
@@ -80,8 +86,13 @@
     function toggleSidebar() {
       const sidebar = document.getElementById('sidebar');
       const main = document.getElementById('main');
-      sidebar.classList.toggle('hidden');
-      main.classList.toggle('full');
+
+      if (window.innerWidth <= 768) {
+        sidebar.classList.toggle('show');
+      } else {
+        sidebar.classList.toggle('hidden');
+        main.classList.toggle('full');
+      }
     }
   </script>
 
